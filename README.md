@@ -86,3 +86,36 @@ HTTP协议是基于请求/响应模式的，因此只要服务端给了响应，
 这种通信模型有一个弊端：HTTP 协议无法实现服务器主动向客户端发起消息。  
 
 WebSocket 就是这样发明的。WebSocket 连接允许客户端和服务器之间进行全双工通信，以便任一方都可以通过建立的连接将数据推送到另一端。WebSocket 只需要建立一次连接，就可以一直保持连接状态。这相比于轮询方式的不停建立连接显然效率要大大提高。
+## react高阶组件？ [参考教程](https://segmentfault.com/a/1190000010371752)
+它描述的便是接受React组件作为输入，输出一个新的React组件的组件。  
+
+下面我们来实现一个最简单的高阶组件（函数），它接受一个React组件，包裹后然后返回
+```
+export default function withHeader(WrappedComponent) {
+  return class HOC extends Component {
+    render() {
+      return <div>
+        <div className="demo-header">
+          我是标题
+        </div>
+        <WrappedComponent {...this.props}/>
+      </div>
+    }
+  }
+}
+
+
+```
+在其他组件里，我们引用这个高阶组件，用来强化它。
+```
+@withHeader
+export default class Demo extends Component {
+  render() {
+    return (
+      <div>
+        我是一个普通组件
+      </div>
+    );
+  }
+}
+```
