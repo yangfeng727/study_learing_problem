@@ -121,3 +121,11 @@ export default class Demo extends Component {
 ```
 ## nvm？ [参考教程](https://www.jianshu.com/p/d0e0935b150a)
 我们可能同时在进行2个项目，而2个不同的项目所使用的node版本又是不一样的，或者是要用更新的node版本进行试验和学习。这种情况下，对于维护多个版本的node将会是一件非常麻烦的事情，而nvm就是为解决这个问题而产生的，他可以方便的在同一台设备上进行 ***多个node版本之间切换***
+
+## 关于nodejs [参考教程](https://www.cnblogs.com/snandy/p/3445550.html)
+1.载入node_modules里的模块，用var mod = require('module_name')方式，如果模块名不是路径，也不是内置模块，Node将试图去当前目录的node_modules文件夹里搜索。如果当前目录的node_modules里没有找到，Node会从父目录的node_modules里搜索，这样递归下去直到根目录。
+
+2.载入文件目录模块，可以直接require一个目录，假设有一个目录名为folder，如
+var myMod = require('./folder')
+此时，Node将搜索整个folder目录，Node会假设folder为一个包并试图找到包定义文件package.json。如果folder目录里没有包含package.json文件，Node会假设默认主文件为index.js，即会加载index.js。如果index.js也不存在，那么加载将失败。
+
