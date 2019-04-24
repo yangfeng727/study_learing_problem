@@ -162,3 +162,7 @@ var myMod = require('./folder')
       console.log(results);
   });
   ```
+  2.ES7 async await [参考教程](https://segmentfault.com/a/1190000011526612?utm_source=tag-newest)  
+   (1) async用来表示函数是异步的，定义的函数会返回一个promise对象，可以使用then方法添加回调函数。  
+   (2) await 可以理解为是 async wait 的简写。await 必须出现在 async 函数内部，不能单独使用。  
+   (3) 如果await的是 promise对象会造成异步函数停止执行并且等待 promise 的解决,如果等的是正常的表达式则立即执行
