@@ -130,8 +130,8 @@ var myMod = require('./folder')
 此时，Node将搜索整个folder目录，Node会假设folder为一个包并试图找到包定义文件package.json。如果folder目录里没有包含package.json文件，Node会假设默认主文件为index.js，即会加载index.js。如果index.js也不存在，那么加载将失败。
 
 ## 关于异步处理，ES5的回调,ES6的Promise，ES7的async-await
-1.promise [参考教程](https://www.cnblogs.com/whybxy/p/7645578.html)  
-  需要注意的是**链式操作的用法，all的用法，race的用法*
+1.ES6 promise详解 [参考教程](https://www.cnblogs.com/whybxy/p/7645578.html)  
+  需要注意的是**链式操作的用法，all的用法，race的用法**
   ```
   // 和回调不同的是，这里可以直接使用链式调用
   runAsync1()
