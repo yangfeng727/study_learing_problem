@@ -166,3 +166,10 @@ var myMod = require('./folder')
    (1) async用来表示函数是异步的，定义的函数会返回一个promise对象，可以使用then方法添加回调函数。  
    (2) await 可以理解为是 async wait 的简写。await 必须出现在 async 函数内部，不能单独使用。  
    (3) 如果await的是 promise对象会造成异步函数停止执行并且等待 promise 的解决,如果等的是正常的表达式则立即执行
+   
+   ## 关于axios
+   ### 1.axios里的baseURL和webpack里的 proxyTable有什么区别。
+   这个用途不一样，
+baseUrl会附加到你绑定的axios实例（如果是全局的，那就是所有实例）上，即如果get/post的url参数是相对路径（如） /api/c/xx，那就会执行 baseUrl + '/api/c/xx',如果未指定baseUrl，那就走浏览器地址栏里的base + baseUrl。
+webpack里的proxyTable是测试环境为了避免浏览器下的跨域访问，而以nodejs代理成同前端页面（即浏览器地址栏）同域的一种处理。指定proxyTable后， axios就不需要指定baseUrl了。proxyTable会把base + '/api/c/xx'代理到【base baseUrl + '/api/c/xx'】的接口地址上。
+当然工程发布时，后端和前端也需要发布到同一个域下。
