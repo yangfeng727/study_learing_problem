@@ -174,3 +174,15 @@ var myMod = require('./folder')
 baseUrl会附加到你绑定的axios实例（如果是全局的，那就是所有实例）上，即如果get/post的url参数是相对路径（如） /api/c/xx，那就会执行 baseUrl + '/api/c/xx',如果未指定baseUrl，那就走浏览器地址栏里的base + baseUrl。
 webpack里的proxyTable是测试环境为了避免浏览器下的跨域访问，而以nodejs代理成同前端页面（即浏览器地址栏）同域的一种处理。指定proxyTable后， axios就不需要指定baseUrl了。proxyTable会把base + '/api/c/xx'代理到【base baseUrl + '/api/c/xx'】的接口地址上。
 当然工程发布时，后端和前端也需要发布到同一个域下。
+
+## 关于es6语法
+### Symbol 这是一种新的基础数据类型，它的功能类似于一种标识唯一性的ID
+```
+let s1 = Symbol()
+let s2 = Symbol('another symbol')
+let s3 = Symbol('another symbol')
+
+s1 === s2 // false
+s2 === s3 // false
+```
+### Set 类似数组，成员唯一，使用set去重 [...new Set(arr)]
