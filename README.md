@@ -228,3 +228,8 @@ a.get(dd)
 // a.keys() 获取所有的键值
 // a.values() 获取所有的value值
 ```
+### repeat函数：平铺指定次数 如 'x'.repeat(3) // xxx
+```
+var a='abs'
+console.log(a.repeat(3))  // absabsabs
+```
