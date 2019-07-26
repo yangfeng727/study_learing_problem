@@ -233,3 +233,5 @@ a.get(dd)
 var a='abs'
 console.log(a.repeat(3))  // absabsabs
 ```
+
+### module ：import export必须走http协议
