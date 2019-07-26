@@ -186,3 +186,12 @@ s1 === s2 // false
 s2 === s3 // false
 ```
 ### Set 类似数组，成员唯一，使用set去重 [...new Set(arr)]
+```
+var s=new Set([2,3,3,5])
+s.add(4) //
+
+s.delete(2) // 
+
+s.clear() // 清空
+
+```
