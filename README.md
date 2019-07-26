@@ -188,10 +188,38 @@ s2 === s3 // false
 ### Set 类似数组，成员唯一，使用set去重 [...new Set(arr)]
 ```
 var s=new Set([2,3,3,5])
-s.add(4) //
+s.add(4) // Set(4) {2, 3, 5, 4}
 
-s.delete(2) // 
+s.has(3) // true
 
-s.clear() // 清空
+s.delete(2) // true s变为Set(3) {3, 5, 4}
 
+s.size // 3
+
+s.clear() // 清空 Set(0) {}
+
+```
+### Map 类似对象，但键不限于字符串（传统对象，健值一定为字符串）
+```
+var a=new Map()
+
+// a.set('健','值') 新增值
+a.set('a',1111) // Map(1) {"a" => 1111}
+
+// a.get('键') 获取值
+a.get('a') // 1111
+
+// 当键值为对象时，注意：对象不能直接写，需要赋值给变量才行
+
+// bad
+a.set(['dd'],1111)
+a.get(['dd']) // undefined
+
+// good
+var dd=['dd']
+a.set(dd,1111)
+a.get(dd)
+
+// a.keys() 获取所有的键值
+// a.values() 获取所有的value值
 ```
