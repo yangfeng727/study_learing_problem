@@ -185,7 +185,7 @@ let s3 = Symbol('another symbol')
 s1 === s2 // false
 s2 === s3 // false
 ```
-### Set 类似数组，成员唯一，使用set去重 [...new Set(arr)]
+### Set 类似数组，成员唯一，使用set去重 [...new Set(arr)] ，for .. of..遍历新的数据类型
 ```
 var s=new Set([2,3,3,5])
 s.add(4) // Set(4) {2, 3, 5, 4}
@@ -197,6 +197,11 @@ s.delete(2) // true s变为Set(3) {3, 5, 4}
 s.size // 3
 
 s.clear() // 清空 Set(0) {}
+
+// 循环遍历集合 for.. of.. 只能输出值
+for(var val of s){
+console.log('值',val)  // 值 xxx
+}
 
 ```
 ### Map 类似对象，但键不限于字符串（传统对象，健值一定为字符串）
