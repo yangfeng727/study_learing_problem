@@ -235,3 +235,24 @@ console.log(a.repeat(3))  // absabsabs
 ```
 
 ### module ：import export必须走http协议
+
+## 针对登陆时 session，cookie，token的理解
+```
+session id （区分用户）-》token（令牌） 登陆时发给用户token，存储在客户端，当客户端发送其他请求时，将userId和token一起带过来,服务器这边将userid再加密和token比较，相等则登陆过了
+
+session是存储服务器端，cookie是存储在客户端，所以session的安全性比cookie高。
+
+当浏览器关闭的时候会话cookie消失，所以sessionid也就消失了，但是session的信息还存在服务器端，只是查不到所谓的session但它并不是不存在。
+
+
+存储session信心到服务端会加重服务器的负担，而且遇到服务端使用负载均衡还有问题，后来有了token，将信息存储在客户端，服务器每次获取到token再使用自己的加密方式解密
+
+
+使用基于 Token 的身份验证方法，在服务端不需要存储用户的登录记录。大概的流程是这样的：
+客户端使用用户名跟密码请求登录
+服务端收到请求，去验证用户名与密码
+验证成功后，服务端会签发一个 Token，再把这个 Token 发送给客户端
+客户端收到 Token 以后可以把它存储起来，比如放在 Cookie 里或者数据库里
+客户端每次向服务端请求资源的时候需要带着服务端签发的 Token
+服务端收到请求，然后去验证客户端请求里面带着的 Token，如果验证成功，就向客户端返回请求的数据
+```
