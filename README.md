@@ -256,3 +256,28 @@ session是存储服务器端，cookie是存储在客户端，所以session的安
 客户端每次向服务端请求资源的时候需要带着服务端签发的 Token
 服务端收到请求，然后去验证客户端请求里面带着的 Token，如果验证成功，就向客户端返回请求的数据
 ```
+### 使用axios时，post提交注意设置headers为Content-Type: application/x-www-form-urlencoded
+```
+
+/**
+ *  提交JSON格式的网络请求
+ *  @config 其他配置
+ */
+export function $httpPOST ({ url, data = {}, config = {
+    headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'},
+    transformRequest: [function (data) {
+      data = qs.stringify(data)  // 这里需要使用qs模块序列化一下
+      return data
+    }]
+  }}) {
+  //   headers: {'Content-Type': 'application/json;charset=utf-8'},
+  // return new Promise((resolve, reject) => {
+  //   Axios.post(url, data, config)
+  //     .then(response => {
+  //       resolve(response.data)
+  //     })
+  // })
+  return Axios.post(url, data, config)
+}
+
+```
