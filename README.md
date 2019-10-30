@@ -305,7 +305,8 @@ export function $httpPOST ({ url, data = {}, config = {
         var input = $('#file')[0];
         //图片上传成功后会将图片名称赋值给 value 属性
         if (input.value) {
-            //使用 FormData 对象
+            //使用 FormData 对象 
+            // FormData类型其实是在XMLHttpRequest 2级定义的，它是为序列化表以及创建与表单格式相同的数据（当然是用于XHR传输）提供便利。
             var formData = new FormData();
             //将图片对象添加到 files
             formData.append('files', $('#file')[0].files[0])
@@ -325,13 +326,15 @@ export function $httpPOST ({ url, data = {}, config = {
             //以下是将图片显示到 img 标签上
            var pic = input.files[0];
            var read = new FileReader();
-           read.onload = function (e) {
+           read.readAsDataURL(pic); // readAsDataURL方法会使用base-64进行编码
+           read.onload = function (e) { // 编码后的结果显示到img里
               document.getElementById('img').src = e.target.result;
            };
-           read.readAsDataURL(pic);
         }
     })
 </script>
 </html>
 
 ```
+
+## 关于readAsDataURL方法[参考链接](https://blog.csdn.net/sinat_31057219/article/details/70242265)
