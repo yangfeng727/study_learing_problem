@@ -281,3 +281,57 @@ export function $httpPOST ({ url, data = {}, config = {
 }
 
 ```
+
+## 关于文件上传
+### 1.当图片较少时可以考虑直接转为base64存储在数据库
+### 2.图片比较大时上传至文件服务器，并返回路径 [参考网址](https://blog.csdn.net/weixin_44135121/article/details/91049103)
+```
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片上传到服务器</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+<input type="file" id="file" name="imgFile" accept="image/jpeg,image/jpg,image/png">
+<img id="img"/>
+</body>
+<script>
+    $('#file').change(function () {
+        var input = $('#file')[0];
+        //图片上传成功后会将图片名称赋值给 value 属性
+        if (input.value) {
+            //使用 FormData 对象
+            var formData = new FormData();
+            //将图片对象添加到 files
+            formData.append('files', $('#file')[0].files[0])
+            //使用 ajax 上传图片
+            $.ajax({
+                url: 'http://localhost:8081/file_upload',
+                type: 'POST',
+                cache: false,
+                data: formData,
+                processData: false,
+                contentType: false
+            }).done(function (res) {
+                console.log(res);
+            }).fail(function (res) {
+                console.log(res);
+            });
+            //以下是将图片显示到 img 标签上
+           var pic = input.files[0];
+           var read = new FileReader();
+           read.onload = function (e) {
+              document.getElementById('img').src = e.target.result;
+           };
+           read.readAsDataURL(pic);
+        }
+    })
+</script>
+</html>
+
+```
