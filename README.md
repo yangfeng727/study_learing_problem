@@ -338,3 +338,5 @@ export function $httpPOST ({ url, data = {}, config = {
 ```
 
 ## 关于readAsDataURL方法[参考链接](https://blog.csdn.net/sinat_31057219/article/details/70242265)
+
+## RBAC权限管理模型-（Role-Based Access Control）——基于角色的访问控制 [参考网址](https://www.xiaoman.cn/detail/150)
