@@ -340,3 +340,8 @@ export function $httpPOST ({ url, data = {}, config = {
 ## 关于readAsDataURL方法[参考链接](https://blog.csdn.net/sinat_31057219/article/details/70242265)
 
 ## RBAC权限管理模型-（Role-Based Access Control）——基于角色的访问控制 [参考网址](https://www.xiaoman.cn/detail/150)
+
+## 关于md5加密 [参考教程](https://www.cnblogs.com/second-tomorrow/p/9129043.html)
+### 首先，MD5加密后是不可逆的，最常见的应用场景就是登陆是的密码，数据库里面存储的是利用md5加密后的密文，当客户端接受到用户输入的密码时，与后端字符串按照之前的规则和某个字符串拼接，经过MD5加密后再与数据库的密文对比是否一致，相等则密码正确。这样的设计还有另外一个好处，就是可以一定程度上防止SQL注入
+
+## 公钥密钥 [参考网址](https://www.cnblogs.com/hzk001/p/11744028.html)
