@@ -361,3 +361,10 @@ export function $httpPOST ({ url, data = {}, config = {
 
 3、.babelrc [参考](https://www.cnblogs.com/tugenhua0707/p/9452471.html)
 这个文件是用来设置转码的规则和插件的
+
+
+## 关于适配
+postcss-pxtorem 支持排除以某个字符开始的样式。，如 el-，使用        selectorBlackList  : ['weui','mu'], // 忽略转换正则匹配项
+px2rem-loader 不支持排除文件
+
+postcss-px2rem-exclude和px2rem-exclude两个插件目前能转换本项目文件，但是element ui样式完全没转换
