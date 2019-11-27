@@ -345,3 +345,8 @@ export function $httpPOST ({ url, data = {}, config = {
 ### 首先，MD5加密后是不可逆的，最常见的应用场景就是登陆是的密码，数据库里面存储的是利用md5加密后的密文，当客户端接受到用户输入的密码时，与后端字符串按照之前的规则和某个字符串拼接，经过MD5加密后再与数据库的密文对比是否一致，相等则密码正确。这样的设计还有另外一个好处，就是可以一定程度上防止SQL注入
 
 ## 公钥密钥 [参考网址](https://www.cnblogs.com/hzk001/p/11744028.html)
+
+## 1.问：package.json里面的browserslist 和.postcssrc.js里面的autoprefixer？browserslist对象智能添加css前缀，autoprefixer也是添加前缀，两个的区别？还要为什么会用一起用到
+
+答案：package.json里面的browserslist试着创造一个设定档可以用來給你想像得到的工具都引來使用，其他工具会使用browserslist中的配置进行参考,如智能添加css前缀autoprefixer插件会参考里面的配置处理，当然不参考也没什么，这取决于插件的开发者。
+
