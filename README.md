@@ -349,5 +349,15 @@ export function $httpPOST ({ url, data = {}, config = {
 ## 1. 问：package.json里面的browserslist 和.postcssrc.js里面的autoprefixer？browserslist对象智能添加css前缀，autoprefixer也是添加前缀，两个的区别？还要为什么会用一起用到
 
 答案：package.json里面的browserslist试着创造一个设定档可以用來給你想像得到的工具都引來使用，其他工具会使用browserslist中的配置进行参考,如智能添加css前缀autoprefixer插件会参考里面的配置处理，当然不参考也没什么，这取决于插件的开发者。[browserslist参考](https://www.cnblogs.com/both-eyes/p/10151272.html)
-## 2. 问
+## 2. 问vue中几个文件的作用
+  1、.postcssrc.js 
 
+       众所周知为兼容所有浏览器，有的CSS属性需要对不同的浏览器加上前缀，然而有时添加一条属性，需要添加3~4条类似的   属性只是为了满足浏览器的兼容，这不仅会增加许多的工作量，还会使得你的思路被打断。  如何解决这个问题? 处理CSS前       缀问题的神器——AutoPrefixer。
+
+     Autoprefixer是一个后处理程序，你可以同Sass，Stylus或LESS等预处理器共通使用。它适用于普通的CSS，而你无需关心要 为哪些浏览器加前缀，只需全新关注于实现，并使用W3C最新的规范。
+
+2、.eslintrc.js
+ eslint是用来管理和检测js代码风格的工具，可以和编辑器搭配使用，如vscode的eslint插件 当有不符合配置文件内容的代码出现就会报错或者警告
+
+3、.babelrc
+这个文件是用来设置转码的规则和插件的
