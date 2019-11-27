@@ -346,7 +346,9 @@ export function $httpPOST ({ url, data = {}, config = {
 
 ## 公钥密钥 [参考网址](https://www.cnblogs.com/hzk001/p/11744028.html)
 
-## 1.问：package.json里面的browserslist 和.postcssrc.js里面的autoprefixer？browserslist对象智能添加css前缀，autoprefixer也是添加前缀，两个的区别？还要为什么会用一起用到
+## 问题
+1. 问：package.json里面的browserslist 和.postcssrc.js里面的autoprefixer？browserslist对象智能添加css前缀，autoprefixer也是添加前缀，两个的区别？还要为什么会用一起用到
 
-答案：package.json里面的browserslist试着创造一个设定档可以用來給你想像得到的工具都引來使用，其他工具会使用browserslist中的配置进行参考,如智能添加css前缀autoprefixer插件会参考里面的配置处理，当然不参考也没什么，这取决于插件的开发者。
+答案：package.json里面的browserslist试着创造一个设定档可以用來給你想像得到的工具都引來使用，其他工具会使用browserslist中的配置进行参考,如智能添加css前缀autoprefixer插件会参考里面的配置处理，当然不参考也没什么，这取决于插件的开发者。[browserslist参考](https://www.cnblogs.com/both-eyes/p/10151272.html)
+2. 问：
 
