@@ -350,7 +350,7 @@ export function $httpPOST ({ url, data = {}, config = {
 
 答案：package.json里面的browserslist试着创造一个设定档可以用來給你想像得到的工具都引來使用，其他工具会使用browserslist中的配置进行参考,如智能添加css前缀autoprefixer插件会参考里面的配置处理，当然不参考也没什么，这取决于插件的开发者。[browserslist参考](https://www.cnblogs.com/both-eyes/p/10151272.html)
 ## 2. 问vue中几个文件的作用
-  1、.postcssrc.js [参考](https://github.com/michael-ciniawsky/postcss-load-config)
+  1、.postcssrc.js [参考1](https://www.jianshu.com/p/71b8f1caef4e)[参考2](https://github.com/michael-ciniawsky/postcss-load-config)
 
        众所周知为兼容所有浏览器，有的CSS属性需要对不同的浏览器加上前缀，然而有时添加一条属性，需要添加3~4条类似的   属性只是为了满足浏览器的兼容，这不仅会增加许多的工作量，还会使得你的思路被打断。  如何解决这个问题? 处理CSS前       缀问题的神器——AutoPrefixer。
 
