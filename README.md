@@ -336,6 +336,11 @@ export function $httpPOST ({ url, data = {}, config = {
 </html>
 
 ```
+### 表单提交
+想要使用name键值对传递多个名称相同的字段，如name:1,name:2,name:3等，使用js对象由于键值对不同，前面的name会被覆盖，最终只能是name:3。遇到这种情况只能使用表单提交
+
+#### 1.使用jq的serialize方法序列化参数 [参考网址](https://www.cnblogs.com/lijianda/p/8867555.html)
+![image](img/1.png)![image](img/2.png)![image](img/3.png)![image](img/4.png)
 
 ## 关于readAsDataURL方法[参考链接](https://blog.csdn.net/sinat_31057219/article/details/70242265)
 
