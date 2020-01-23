@@ -373,3 +373,6 @@ postcss-pxtorem 支持排除以某个字符开始的样式。，如 el-，使用
 px2rem-loader 不支持排除文件
 
 postcss-px2rem-exclude和px2rem-exclude两个插件目前能转换本项目文件，但是element ui样式完全没转换
+
+## 在写婚礼邀请函时看到一段css布局代码，关于height:10%的使用
+全屏轮播时，父级别设置height:100%;子级别设置height:10%可以实现子集铺满。
