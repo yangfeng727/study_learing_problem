@@ -401,7 +401,7 @@ postcss-px2rem-exclude和px2rem-exclude两个插件目前能转换本项目文�
     return arr
   }
 ```
-## 关于图片压缩，采用canvas压缩，参考地址[https://www.jianshu.com/p/f46195810c3b]
+## 关于图片压缩，采用canvas压缩，[参考地址](https://www.jianshu.com/p/f46195810c3b)
 原理大概就是：
 ```
 1、先将图片的file文件转成baseURL
