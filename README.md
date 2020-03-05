@@ -401,3 +401,173 @@ postcss-px2rem-exclude和px2rem-exclude两个插件目前能转换本项目文�
     return arr
   }
 ```
+## 关于图片压缩，采用canvas压缩，参考地址[https://www.jianshu.com/p/f46195810c3b]
+原理大概就是：
+```
+1、先将图片的file文件转成baseURL
+2、创建一个image标签去接收文件获取图片的宽高和比例。
+3、创建canvas画布设置画布的大小。
+4、将图片绘制到canvas上面。
+5、对canvas进行压缩处理，获得新的baseURL  (这一步可以看作是将原图进行了压缩)
+6、将baseURL转化回文件。（返回压缩后的图片）
+
+// 图片压缩相关的公共方法
+  /**
+   * canvas压缩图片
+   * @param {图片路径} obj.path 图片路径base64
+   * @param {输出图片宽度} obj.width 等比缩放不用传宽度高度
+   * @param {输出图片名称} obj.fileName 不传初始赋值image
+   * @param {压缩图片程度} obj.quality 不传初始赋值0.8。值范围0~1
+   * @param {压缩图片的类型} obj.type image/jpeg || image/png
+   * @param {期望压缩图片的大小(单位kb)} obj.targetSize （最多压缩次数压缩后都比期望尺寸大则弹出错误）
+   * @param {回调函数} callback
+   */
+  Vue.prototype.$pressImg = function (obj, callbackFn) {
+    if (!obj.path) {
+      callbackFn('')
+      return true
+    }
+    if (obj.targetSize && this.$dataURLtoFile(obj.path, 'img').size / 1024 < obj.targetSize) { // 当前图片小于目标压缩大小，直接返回
+      callbackFn(obj.path) // base64
+      return true
+    }
+    let curNum = 1 // 当前压缩次数
+    let maxNum = 5 // 最多压缩次数
+    let self = this
+    let img = new Image()
+    img.src = obj.path
+    img.onload = function () {
+      let canvas = document.createElement('canvas')// 创建canvas元素
+      let width = img.width // 确保canvas的尺寸和图片一样
+      let height = img.height
+      let type = obj.type ? obj.type : 'image/jpeg'
+      let quality = obj.quality ? obj.quality : 0.8
+      canvas.width = obj.width ? obj.width : width
+      canvas.height = obj.height ? obj.height : height
+      canvas.getContext('2d').drawImage(img, 0, 0, width, height) // 将图片绘制到canvas中
+      let press = function () {
+        return canvas.toDataURL(type, quality) // 转换图片为dataURL
+      }
+      let base64 = press()
+      if (obj.targetSize) { // 有大小限制则递归压缩
+        while (self.$dataURLtoFile(base64, 'img').size / 1024 > obj.targetSize) {
+          console.log('图片压缩次数', curNum)
+          console.log('压缩后的图片大小', self.$dataURLtoFile(base64, 'img').size / 1024)
+          if (curNum === maxNum) { // 达到最大压缩次数
+            base64 = 'large' // 图片过大，请重新上传
+            break
+          }
+          curNum++
+          // 递归压缩发现到后面图片大小基本不变，这里采用更简单的方法更改压缩质量
+          quality = quality / 2
+          base64 = press()
+        }
+      }
+      callbackFn && callbackFn(base64)
+      return true
+    }
+    img.onerror = function () {
+      callbackFn && callbackFn('err')
+      return false
+    }
+  }
+
+  /**
+   * 将base64转换为文件流
+   * @param {baseURL} dataurl
+   * @param {文件名称} filename
+   * @return {文件二进制流} 文件大小单位是b
+   */
+  Vue.prototype.$dataURLtoFile = function (dataurl, filename) {
+    let arr = dataurl.split(',')
+    let mime = arr[0].match(/:(.*?);/)[1]
+    let bstr = atob(arr[1])
+    let n = bstr.length
+    let u8arr = new Uint8Array(n)
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n)
+    }
+    return new File([u8arr], filename, {type: mime})
+  }
+
+  /**
+   * 将file文件转化为base64
+   * @param {二进制文件流} file
+   * @param {回调函数，返回base64} fn
+   */
+  Vue.prototype.$changeFileToBaseURL = function (file, fn) {
+    // 创建读取文件对象
+    let fileReader = new FileReader()
+    // 如果file没定义返回null
+    if (file === undefined) return fn(null)
+    // 读取file文件,得到的结果为base64位
+    fileReader.readAsDataURL(file)
+    fileReader.onload = function () {
+      // 把读取到的base64
+      let imgBase64Data = this.result
+      fn(imgBase64Data)
+    }
+  }
+  
+  。。。。。。。。。
+  。。。。。。。
+  // 在plus中的调用
+        /**
+       *  上传文件（base64）
+       * */
+      uploadBase64 () {
+        let self = this
+        let path = this.picture
+        let wt = plus.nativeUI.showWaiting() // 显示原生loading
+        // 根据路径读取到文件
+        plus.io.resolveLocalFileSystemURL(path, function (entry) {
+          entry.file(function (file) {
+            let fileReader = new plus.io.FileReader()
+            fileReader.readAsDataURL(file)
+            fileReader.onloadend = function (e) {
+              self.$pressImg({
+                path: e.target.result,
+                targetSize: 1024 // 不超过1024kb
+              }, (base64) => {
+                wt.close()
+                if (base64 === 'large') {
+                  self.showAlert(self.$t('register.ScanUpload.pLarge'))
+                } else if (!base64) {
+                  self.showAlert(self.$t('register.ScanUpload.pErr'))
+                } else {
+                  // let filename = f.replace(f.substring(0, f.lastIndexOf('/') + 1), '')
+                  // let param = {
+                  //   fileName: filename,
+                  //   dataInput: e.target.result.toString()
+                  // }
+                  //               identityType选择项：PASSPORT(1),IDENTITY_CARD(2)
+                  // 上传
+                  self.$httpPOST({
+                    url: self.$xhrConfig.setting.identityUpload,
+                    data: {
+                      mobile: self.mobile,
+                      identityType: self.identityType,
+                      images: self.$base64Img(base64)
+                    }
+                  }).then((res) => {
+                    if (res.sus) {
+                      self.showAlert(self.$t('register.ScanUpload.upSus'))
+                      self.goBack()
+                    }
+                  }).catch((error) => {
+                    self.showAlert(self.$t('register.ScanUpload.upFail'))
+                    console.log(error)
+                  })
+                }
+              })
+            }
+
+            fileReader.onerror = function () {
+              self.showAlert(self.$t('register.ScanUpload.msg'))
+            }
+          })
+        })
+      },
+  。。。。。。。
+  。。。。。。。。。
+```
