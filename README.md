@@ -377,3 +377,27 @@ postcss-px2rem-exclude和px2rem-exclude两个插件目前能转换本项目文�
 ## 在写婚礼邀请函时看到一段css布局代码，关于height:10%的使用
 全屏轮播时，父级别设置height:100%;子级别设置height:10%可以实现子集铺满。
 如果子级使用的是height:100%，那么将会是所有子集加起来的高度，而不是一屏幕的高度。
+
+## 英文汉字等按字母排序
+```
+  // 国际化相关
+  /**
+   *  根据字母汉字等排序
+   *  @arr 将数组排序
+   * */
+  Vue.prototype.$localeCompare = function (arr) {
+    let lang = window.i18n.locale // 当前语言类型
+    if (lang.toLowerCase().indexOf('zh') > -1) { // 中文
+      arr.sort(
+        function compareFunction (a, b) {
+          return a.localeCompare(b, 'zh')
+        }
+      )
+    } else { // 英文等
+      arr.sort(function (a, b) {
+        return a.localeCompare(b)
+      })
+    }
+    return arr
+  }
+```
