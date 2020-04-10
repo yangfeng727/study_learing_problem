@@ -571,3 +571,10 @@ postcss-px2rem-exclude和px2rem-exclude两个插件目前能转换本项目文�
   。。。。。。。
   。。。。。。。。。
 ```
+## 单点登陆流程[参考网站](https://blog.csdn.net/xiaoguan_liu/article/details/91492110)
+### 1.首先搞懂但系统登陆的流程？
+sessionid   
+首先用户输入用户名密码请求后端服务器，成功则分配一个sessionid返回，并存储在浏览器，同时记录当前sessonid未已登录或者已授权。后续浏览器访问资源时，
+每次请求受保护资源时都会检查会话对象中的登录状态，只有 isLogin=true 的会话才能访问，登录机制因此而实现。  
+token  
+登陆后存储在浏览器，后续发送请求时传递到后端
