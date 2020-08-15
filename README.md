@@ -578,3 +578,9 @@ sessionid
 每次请求受保护资源时都会检查会话对象中的登录状态，只有 isLogin=true 的会话才能访问，登录机制因此而实现。  
 token  
 登陆后存储在浏览器，后续发送请求时传递到后端
+
+## 关于页面打印
+window.print()打印全屏，要想只打印某个区域使用iframe加载css和html
+打印插件，  
+jquery jqprint  （最终选择使用这个，但是css和js得提前在html中声明）
+vue vue-print-nb  （在使用过程中部兼容ie。。。）
