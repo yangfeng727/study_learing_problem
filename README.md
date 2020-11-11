@@ -584,3 +584,22 @@ window.print()打印全屏，要想只打印某个区域使用iframe加载css和
 打印插件，  （大概原理，将所选html片段提取出来，放入iframe，并调用iframe中的window.print()方法）  
 jquery jqprint  （最终选择使用这个，但是css和js得提前在html中声明）  
 vue vue-print-nb  （在使用过程中不兼容ie。。。）  
+
+## 关于离开页面前的判断 js onbeforeunload 事件，比如提示用户保存编辑了的数据
+```
+//注意： 谷歌浏览器操作了才提示，不能使用console，alert
+//现在浏览器为了优化用户体验，对onbeforeunload 的离开页面提示做出了限制。
+//比如最新版的谷歌浏览器，必须要有用户在页面上有点击等操作之后再离开页面才能有提示，如果页面打开后没有用户在页面上点击等操作就离开（关闭）页面就不会有提示。
+//另外一般的ide或代码编辑器内嵌浏览器离开（关闭）页面也不会有提示
+
+window.onbeforeunload = function (e) { 
+e = e || window.event; 
+// For IE and Firefox prior to version 4 
+if (e) { 
+e.returnValue = '确定退出吗？'; 
+} 
+
+// For Safari 
+return '确定退出吗？'; 
+}; 
+```
