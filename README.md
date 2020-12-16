@@ -489,6 +489,12 @@ postcss-px2rem-exclude和px2rem-exclude两个插件目前能转换本项目文�
     }
     return new File([u8arr], filename, {type: mime}) // 转文件流
     // return new Blob([u8arr], {type: mime}); // 转blob
+    
+    // 其他对file的处理
+     // var blob = new Blob(buffer, {type: ''}); // buffer转blob
+   //   return new File([blob], 'msr-' + (new Date).toISOString().replace(/:|\./g, '-') + '.mp4', {  // blob转file
+    //      type: 'video/mp4',
+    //  });
   }
 
   /**
