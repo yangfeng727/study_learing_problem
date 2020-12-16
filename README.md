@@ -487,7 +487,8 @@ postcss-px2rem-exclude和px2rem-exclude两个插件目前能转换本项目文�
     while (n--) {
       u8arr[n] = bstr.charCodeAt(n)
     }
-    return new File([u8arr], filename, {type: mime})
+    return new File([u8arr], filename, {type: mime}) // 转文件流
+    // return new Blob([u8arr], {type: mime}); // 转blob
   }
 
   /**
