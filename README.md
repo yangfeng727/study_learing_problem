@@ -610,7 +610,9 @@ e.returnValue = '确定退出吗？';
 return '确定退出吗？'; 
 }; 
 ```
-
+## webpack 进阶，compiler和compilation讲解
+### ![参考教程](https://blog.didiyun.com/index.php/2019/03/01/webpack/)
+### ![参考教程](https://blog.csdn.net/frontend_frank/article/details/106205260)
 
 ## 中高级前端知识点，面试复习：
 
