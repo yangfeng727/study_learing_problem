@@ -636,4 +636,5 @@ return '确定退出吗？';
 回流【layout阶段】：发生在页面加载流程中，只要页面布局发生变化都会回流（如添加或者删除可见的DOM元素，元素位置改变，元素尺寸改变——边距、填充、边框、宽度和高度，内容改变等）  
 重绘【paint阶段】：当render tree中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格，而不会影响布局的，比如background-color。则就叫称为重绘  
 
-
+### 一屏幕展示代码
+![一屏幕展示代码](https://github.com/yangfeng727/study_learing_problem/blob/master/img/一屏展示效果.png)
