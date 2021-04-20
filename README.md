@@ -638,3 +638,45 @@ return '确定退出吗？';
 
 ### 一屏幕展示代码
 ![一屏幕展示代码](https://github.com/yangfeng727/study_learing_problem/blob/master/img/一屏展示效果.png)
+
+### 函数克隆代码
+```
+    var clone = function (obj) {
+        var o = null
+        if (Object.prototype.toString.call(obj) === '[object Array]') {
+            o = []
+            for (var i = 0; i < obj.length; i++) {
+                o.push(clone(obj[i]))
+            }
+        } else if (Object.prototype.toString.call(obj) === '[object Object]') {
+            o = {}
+
+            for (var x in obj) {
+
+                o[x] = clone(obj[x])
+            }
+        } else {
+            o = obj
+        }
+        return o
+
+    }
+
+    var obj1 = {
+        a: [1, 2, 3, 4, 5, 6],
+        b: {
+            c: 2
+        },
+        d: 1,
+        f: function () {
+            return 1
+        }
+    }
+    var obj2 = clone(obj1)
+    obj2.f = function () {
+        return 2
+    }
+    obj2.a = 1
+    console.log(obj1)
+    console.log(obj2)
+```
