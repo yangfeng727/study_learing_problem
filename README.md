@@ -706,3 +706,38 @@ IE不把该对象传入事件处理函数,由于在任意时刻只会存在一�
 IE模型下的事件监听方式也挺独特，绑定监听函数的方法是：attachEvent( "eventType","handler")，**IE中只支持事件冒泡，没有捕获**，IE中有一个独有的事件绑定方法  
 attachEvent方法，此方法有两个参数：  
 attachEvent("事件名"，"函数名")  
+
+### ie8不支持addEventListener，请使用attachEvent
+```
+//兼容bind函数
+if(!Function.prototype.bind){
+    Function.prototype.bind = function(){
+        if(typeof this !== 'function'){
+　　　　　　throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
+　　　　}
+        var _this = this;
+        var obj = arguments[0];
+        var ags = Array.prototype.slice.call(arguments,1);
+        return function(){
+            _this.apply(obj,ags);
+        };
+    };
+}
+ 
+//兼容addEventListener函数
+function addEventListener(ele,event,fn){
+    if(ele.addEventListener){
+        ele.addEventListener(event,fn,false);
+    }else{
+        ele.attachEvent('on'+event,fn.bind(ele));
+    }
+}
+ 
+//兼容removeEventListener函数
+function removeEventListener(ele,event,fn){
+    if(ele.removeEventListener){
+        ele.removeEventListener(event,fn,false);
+    }else{
+        ele.detachEvent('on'+event,fn.bind(ele));
+    }
+```
