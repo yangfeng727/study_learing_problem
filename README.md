@@ -703,6 +703,6 @@ return '确定退出吗？';
 addEventListener("eventType","handler","true|false");其中eventType指事件类型，注意不要加‘on’前缀，与IE下不同。第二个参数是处理函数，**第三个即用来指定是否在捕获阶段进行处理**，一般设为false来与IE保持一致(默认设置)，除非你有特殊的逻辑需求。监听器的解除也类似：removeEventListner("eventType","handler","true!false");
 ### 3.IE事件模型（针对ie8及以下，才有，ie9及以上使用的DOM2事件模型）
 IE不把该对象传入事件处理函数,由于在任意时刻只会存在一个事件,所以IE把它作为全局对象window的一个属性，为求证其真伪，使用IE8执行代码alert(window.event)，结果弹出是null，说明该属性已经定义，只是值为null（与undefined不同）
-IE中的事件处理机制，**IE中只支持事件冒泡，没有捕获**，IE中有一个独有的事件绑定方法  
+IE模型下的事件监听方式也挺独特，绑定监听函数的方法是：attachEvent( "eventType","handler")，**IE中只支持事件冒泡，没有捕获**，IE中有一个独有的事件绑定方法  
 attachEvent方法，此方法有两个参数：  
 attachEvent("事件名"，"函数名")  
