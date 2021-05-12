@@ -776,3 +776,23 @@ function instance_of(L, R) {//L 表示左表达式，R 表示右表达式
 }
 
 ```
+
+
+# js继承的几种实现
+```
+ // 组合继承优化
+function Parent4(){
+    this.name = "parent4";
+    this.colors = ["red","blue","yellow"];
+}
+Parent4.prototype.sex = "男";
+Parent4.prototype.say = function(){console.log("Oh, My God！")}
+function Child4(){
+    Parent4.call(this);
+    this.type = "child4";
+}
+Child4.prototype = Object.create(Parent4.prototype); // 这里只将父类的prototype拿过来并使用Object.create（是一种创建对象的方式，它会创建一个中间对象）
+Child4.prototype.constructor = Child4;
+```
+
+
