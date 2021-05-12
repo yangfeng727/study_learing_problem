@@ -741,3 +741,38 @@ function removeEventListener(ele,event,fn){
         ele.detachEvent('on'+event,fn.bind(ele));
     }
 ```
+
+# constructor和instanceof的理解，此问题源于继承相关知识
+```
+简单来说：constructor指向构造函数，一般在继承时，无法区分当前对象是继承的父类还是子类，或者想要隐藏父类（不想让别人感知时，可以重新指向constructor）
+Child4.prototype.constructor = Child4
+
+
+instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。（即 a.___proto__ 等于 b.prototype 则 a instanceof b 返回true,再直白点a是不是继承的b或者继承的b的子类）
+
+// instanceof实现原理
+// 示例： a instanceof B
+// 检测a的原型链（__proto__）上是否有B.prototype，若有返回true，否则false。
+function instance_of(L, R) {//L 表示左表达式，R 表示右表达式 
+
+    var O = R.prototype;   // 取 R 的显示原型 
+
+    L = L.__proto__;  // 取 L 的隐式原型
+
+    while (true) {    
+
+        if (L === null)      
+
+             return false;   
+
+        if (O === L)  // 当 O 显式原型 严格等于  L隐式原型 时，返回true
+
+             return true;   
+
+        L = L.__proto__;  
+
+    }
+
+}
+
+```
