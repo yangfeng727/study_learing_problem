@@ -36,8 +36,8 @@ Action 是一个普通 javascript对象，它是改变 State 的唯一途径，�
     （1）react路由用的switch,switch是用于判断在Route里面设置的地址，进入子页面使用
     （2）Link点击的路由地址，跳转到页面上Route组件的位置
 ## 9.HTTP与HTTPS的区别：
-超文本传输协议HTTP协议被用于在Web浏览器和网站服务器之间传递信息，HTTP协议以明文方式发送内容，不提供任何方式的数据加密，如果攻击者截取了Web浏览器和网站服务器之间的传输报文，就可以直接读懂其中的信息，因此，HTTP协议不适合传输一些敏感信息。  
-为了解决HTTP协议的这一缺陷，需要使用另一种协议：安全套接字层超文本传输协议HTTPS，为了数据传输的安全，HTTPS在HTTP的基础上加入了SSL协议，SSL依靠证书来验证服务器的身份，并为浏览器和服务器之间的通信加密。  
+超文本传输协议HTTP协议被用于在Web浏览器和网站服务器之间传递信息，HTTP协议以明文方式发送内容，不提供任何方式的数据加密，如果攻击者截取了Web浏览器和网站服务器之间的传输报文，就可以直接读懂其中的信息，因此，HTTP协议不适合传输一些敏感信息。
+为了解决HTTP协议的这一缺陷，需要使用另一种协议：安全套接字层超文本传输协议HTTPS，为了数据传输的安全，HTTPS在HTTP的基础上加入了SSL协议，SSL依靠证书来验证服务器的身份，并为浏览器和服务器之间的通信加密。
 HTTPS和HTTP的区别主要如下：
 
 　　1、https协议需要到ca申请证书，一般免费证书较少，因而需要一定费用。
@@ -47,21 +47,21 @@ HTTPS和HTTP的区别主要如下：
 　　3、http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。
 
 　　4、http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。
-## 10.webpack 里的chunk是什么意思？  
-指的打包后的代码块的意思，chunkname就是打包后代码的名字。  
+## 10.webpack 里的chunk是什么意思？
+指的打包后的代码块的意思，chunkname就是打包后代码的名字。
 ## 11.http学习？  [详细参考地址](https://blog.csdn.net/qq_16546829/article/details/81165220)
-首先要知道计算机网络的分层，大致两种分法  
- 七层：物理层、链路层、网络层、传输层 、==会话层、表示层==、应用层   
- 五层：物理层、链路层、网络层、传输层、 ----- 应用层  
+首先要知道计算机网络的分层，大致两种分法
+ 七层：物理层、链路层、网络层、传输层 、==会话层、表示层==、应用层
+ 五层：物理层、链路层、网络层、传输层、 ----- 应用层
 
 ### 物理层（“实体层”）
 “实体层”，它就是把电脑连接起来的物理手段。它主要规定了网络的一些电气特性，作用是负责传送0和1的电信号。
 ### 链路层
-1.链路层有个mac地址：  
-以太网规定，连入网络的所有设备，都必须具有"网卡"接口。 数据包必须是从一块网卡，传送到另一块网卡。网卡的地址，就是数据包的发送地址和接收地址，这叫做MAC地址。每块网卡出厂的时候，都有一个全世界独一无二的MAC地址，长度是48个二进制位，通常用12个十六进制数表示前6个十六进制数是厂商编号，后6个是该厂商的网卡流水号。有了MAC地址，就可以定位网卡和数据包的路径了。  
+1.链路层有个mac地址：
+以太网规定，连入网络的所有设备，都必须具有"网卡"接口。 数据包必须是从一块网卡，传送到另一块网卡。网卡的地址，就是数据包的发送地址和接收地址，这叫做MAC地址。每块网卡出厂的时候，都有一个全世界独一无二的MAC地址，长度是48个二进制位，通常用12个十六进制数表示前6个十六进制数是厂商编号，后6个是该厂商的网卡流水号。有了MAC地址，就可以定位网卡和数据包的路径了。
 
-2.使用“广播”的方式发送数据包    
-"网络层"出现以后，每台计算机有了两种地址，一种是MAC地址，另一种是网络地址。两种地址之间没有任何联系，MAC地址是绑定在网卡上的，网络地址则是管理员分配的，它们只是随机组合在一起。网络地址帮助我们确定计算机所在的子网络，MAC地址则将数据包送到该子网络中的目标网卡。因此，从逻辑上可以推断，必定是先处理网络地址，然后再处理MAC地址。  
+2.使用“广播”的方式发送数据包
+"网络层"出现以后，每台计算机有了两种地址，一种是MAC地址，另一种是网络地址。两种地址之间没有任何联系，MAC地址是绑定在网卡上的，网络地址则是管理员分配的，它们只是随机组合在一起。网络地址帮助我们确定计算机所在的子网络，MAC地址则将数据包送到该子网络中的目标网卡。因此，从逻辑上可以推断，必定是先处理网络地址，然后再处理MAC地址。
 
 ### 网络层
 我们用分成四段的十进制数表示IP地址，从0.0.0.0一直到255.255.255.255。互联网上的每一台计算机，都会分配到一个IP地址。这个地址分成两个部分，前一部分代表网络，后一部分代表主机。但是，问题在于单单从IP地址，我们无法判断网络部分。这就要用到另一个参数"子网掩码"（subnet mask）。知道"子网掩码"，我们就能判断，任意两个IP地址是否处在同一个子网络。
@@ -71,23 +71,23 @@ HTTPS和HTTP的区别主要如下：
 "传输层"的功能，就是建立"端口到端口"的通信。
 
 ## HTTP协议中的短轮询、长轮询、长连接和短连接 [参考教程](http://web.jobbole.com/85541/)
-HTTP协议是基于请求/响应模式的，因此只要服务端给了响应，本次HTTP连接就结束了，根本没有长连接短连接这一说。TCP连接是一个双向的通道，它是可以保持一段时间不关闭的，因此TCP连接才有真正的长连接和短连接这一说。长连接是指的TCP连接，而不是HTTP连接。  
-### 第一个问题是，是不是只要设置Connection为keep-alive就算是长连接了？  
-当然是的，但要服务器和客户端都设置。  
-### 第二个问题是，我们平时用的是不是长连接？  
-这个也毫无疑问，当然是的。（现在用的基本上都是HTTP1.1协议，你观察一下就会发现，基本上Connection都是keep-alive。而且HTTP协议文档上也提到了，HTTP1.1默认是长连接，也就是默认Connection的值就是keep-alive）  
+HTTP协议是基于请求/响应模式的，因此只要服务端给了响应，本次HTTP连接就结束了，根本没有长连接短连接这一说。TCP连接是一个双向的通道，它是可以保持一段时间不关闭的，因此TCP连接才有真正的长连接和短连接这一说。长连接是指的TCP连接，而不是HTTP连接。
+### 第一个问题是，是不是只要设置Connection为keep-alive就算是长连接了？
+当然是的，但要服务器和客户端都设置。
+### 第二个问题是，我们平时用的是不是长连接？
+这个也毫无疑问，当然是的。（现在用的基本上都是HTTP1.1协议，你观察一下就会发现，基本上Connection都是keep-alive。而且HTTP协议文档上也提到了，HTTP1.1默认是长连接，也就是默认Connection的值就是keep-alive）
 长连接是为了复用，那既然长连接是指的TCP连接，也就是说复用的是TCP连接。【TCP协议能够确保数据不会遗失。它的缺点是过程复杂、实现困难、消耗较多的资源。】这里节省了tcp消耗
 ### 长短轮询和长短连接的区别
-第一个区别是决定的方式，一个TCP连接是否为长连接，是通过设置HTTP的Connection Header来决定的，而且是需要两边都设置才有效。而一种轮询方式是否为长轮询，是根据服务端的处理方式来决定的，与客户端没有关系。  
-第二个区别就是实现的方式，连接的长短是通过协议来规定和实现的。而轮询的长短，是服务器通过编程的方式手动挂起请求来实现的。 
+第一个区别是决定的方式，一个TCP连接是否为长连接，是通过设置HTTP的Connection Header来决定的，而且是需要两边都设置才有效。而一种轮询方式是否为长轮询，是根据服务端的处理方式来决定的，与客户端没有关系。
+第二个区别就是实现的方式，连接的长短是通过协议来规定和实现的。而轮询的长短，是服务器通过编程的方式手动挂起请求来实现的。
 ## WebSocket 是什么？ [参考教程](https://www.cnblogs.com/jingmoxukong/p/7755643.html)
-了解计算机网络协议的人，应该都知道：HTTP 协议是一种无状态的、无连接的、单向的应用层协议。它采用了请求/响应模型。通信请求只能由客户端发起，服务端对请求做出应答处理。  
+了解计算机网络协议的人，应该都知道：HTTP 协议是一种无状态的、无连接的、单向的应用层协议。它采用了请求/响应模型。通信请求只能由客户端发起，服务端对请求做出应答处理。
 
-这种通信模型有一个弊端：HTTP 协议无法实现服务器主动向客户端发起消息。  
+这种通信模型有一个弊端：HTTP 协议无法实现服务器主动向客户端发起消息。
 
 WebSocket 就是这样发明的。WebSocket 连接允许客户端和服务器之间进行全双工通信，以便任一方都可以通过建立的连接将数据推送到另一端。WebSocket 只需要建立一次连接，就可以一直保持连接状态。这相比于轮询方式的不停建立连接显然效率要大大提高。
 ## react高阶组件？ [参考教程](https://segmentfault.com/a/1190000010371752)
-高阶函数可以接受一个函数作为参数，返回值作为也是函数的函数。类似的 高阶组件也可以接受一个组件为参数，返回一个被加工过的组件。 
+高阶函数可以接受一个函数作为参数，返回值作为也是函数的函数。类似的 高阶组件也可以接受一个组件为参数，返回一个被加工过的组件。
 
 下面我们来实现一个最简单的高阶组件（函数），它接受一个React组件，包裹后然后返回
 ```
@@ -130,7 +130,7 @@ var myMod = require('./folder')
 此时，Node将搜索整个folder目录，Node会假设folder为一个包并试图找到包定义文件package.json。如果folder目录里没有包含package.json文件，Node会假设默认主文件为index.js，即会加载index.js。如果index.js也不存在，那么加载将失败。
 
 ## 关于异步处理，ES5的回调,ES6的Promise，ES7的async-await
-1.ES6 promise详解 [参考教程](https://www.cnblogs.com/whybxy/p/7645578.html)  
+1.ES6 promise详解 [参考教程](https://www.cnblogs.com/whybxy/p/7645578.html)
   需要注意的是**链式操作的用法，all的用法，race的用法**
   ```
   // 和回调不同的是，这里可以直接使用链式调用
@@ -146,8 +146,8 @@ var myMod = require('./folder')
   .then(function(data){
       console.log(data);
   });
-  
-  
+
+
   // all方法并行执行异步操作的能力，原理是「谁跑的慢，以谁为准执行回调」
   Promise
   .all([runAsync1(), runAsync2(), runAsync3()])
@@ -162,12 +162,12 @@ var myMod = require('./folder')
       console.log(results);
   });
   ```
-  2.ES7 async await [参考教程](https://segmentfault.com/a/1190000011526612?utm_source=tag-newest)  
-   (1) async用来表示函数是异步的，定义的函数会返回一个promise对象，可以使用then方法添加回调函数。  
-   (2) await 可以理解为是 async wait 的简写。await 必须出现在 async 函数内部，不能单独使用。  
-   (3) 如果await的是 promise对象会造成异步函数停止执行并且等待 promise 的解决,如果等的是正常的表达式则立即执行  
+  2.ES7 async await [参考教程](https://segmentfault.com/a/1190000011526612?utm_source=tag-newest)
+   (1) async用来表示函数是异步的，定义的函数会返回一个promise对象，可以使用then方法添加回调函数。
+   (2) await 可以理解为是 async wait 的简写。await 必须出现在 async 函数内部，不能单独使用。
+   (3) 如果await的是 promise对象会造成异步函数停止执行并且等待 promise 的解决,如果等的是正常的表达式则立即执行
    关于await的并行串行 [参考教程](https://www.cnblogs.com/leungUwah/p/7932912.html)
-   
+
    ## 关于axios
    ### 1.axios里的baseURL和webpack里的 proxyTable有什么区别。
    这个用途不一样，
@@ -305,7 +305,7 @@ export function $httpPOST ({ url, data = {}, config = {
         var input = $('#file')[0];
         //图片上传成功后会将图片名称赋值给 value 属性
         if (input.value) {
-            //使用 FormData 对象 
+            //使用 FormData 对象
             // FormData类型其实是在XMLHttpRequest 2级定义的，它是为序列化表以及创建与表单格式相同的数据（当然是用于XHR传输）提供便利。
             var formData = new FormData();
             //将图片对象添加到 files
@@ -489,7 +489,7 @@ postcss-px2rem-exclude和px2rem-exclude两个插件目前能转换本项目文�
     }
     return new File([u8arr], filename, {type: mime}) // 转文件流
     // return new Blob([u8arr], {type: mime}); // 转blob
-    
+
     // 其他对file的处理
      // var blob = new Blob(buffer, {type: ''}); // buffer转blob
    //   return new File([blob], 'msr-' + (new Date).toISOString().replace(/:|\./g, '-') + '.mp4', {  // blob转file
@@ -515,7 +515,7 @@ postcss-px2rem-exclude和px2rem-exclude两个插件目前能转换本项目文�
       fn(imgBase64Data)
     }
   }
-  
+
   。。。。。。。。。
   。。。。。。。
   // 在plus中的调用
@@ -580,17 +580,17 @@ postcss-px2rem-exclude和px2rem-exclude两个插件目前能转换本项目文�
 ```
 ## 单点登陆流程[参考网站](https://blog.csdn.net/xiaoguan_liu/article/details/91492110)
 ### 1.首先搞懂单系统登陆的流程？（闪汇后端的请求的token不一样，这个用来做重复性提交认证，后端对session还做了终端ip记录，所以不用担心session被拦截）
-sessionid   
+sessionid
 首先用户输入用户名密码请求后端服务器，成功则分配一个sessionid返回，并存储在浏览器，同时记录当前sessonid未已登录或者已授权。后续浏览器访问资源时，
-每次请求受保护资源时都会检查会话对象中的登录状态，只有 isLogin=true 的会话才能访问，登录机制因此而实现。  
-token  
+每次请求受保护资源时都会检查会话对象中的登录状态，只有 isLogin=true 的会话才能访问，登录机制因此而实现。
+token
 登陆后存储在浏览器，后续发送请求时传递到后端
 
 ## 关于页面打印（有css控制打印时去掉某些样式，有分页代码）
-window.print()打印全屏，要想只打印某个区域使用iframe加载css和html  
-打印插件，  （大概原理，将所选html片段提取出来，放入iframe，并调用iframe中的window.print()方法）  
-jquery jqprint  （最终选择使用这个，但是css和js得提前在html中声明）  
-vue vue-print-nb  （在使用过程中不兼容ie。。。）  
+window.print()打印全屏，要想只打印某个区域使用iframe加载css和html
+打印插件，  （大概原理，将所选html片段提取出来，放入iframe，并调用iframe中的window.print()方法）
+jquery jqprint  （最终选择使用这个，但是css和js得提前在html中声明）
+vue vue-print-nb  （在使用过程中不兼容ie。。。）
 
 ## 关于离开页面前的判断 js onbeforeunload 事件，比如提示用户保存编辑了的数据
 ```
@@ -599,16 +599,16 @@ vue vue-print-nb  （在使用过程中不兼容ie。。。）
 //比如最新版的谷歌浏览器，必须要有用户在页面上有点击等操作之后再离开页面才能有提示，如果页面打开后没有用户在页面上点击等操作就离开（关闭）页面就不会有提示。
 //另外一般的ide或代码编辑器内嵌浏览器离开（关闭）页面也不会有提示
 
-window.onbeforeunload = function (e) { 
-e = e || window.event; 
-// For IE and Firefox prior to version 4 
-if (e) { 
-e.returnValue = '确定退出吗？'; 
-} 
+window.onbeforeunload = function (e) {
+e = e || window.event;
+// For IE and Firefox prior to version 4
+if (e) {
+e.returnValue = '确定退出吗？';
+}
 
-// For Safari 
-return '确定退出吗？'; 
-}; 
+// For Safari
+return '确定退出吗？';
+};
 ```
 ## webpack 进阶，compiler和compilation讲解
 ### [参考教程](https://blog.didiyun.com/index.php/2019/03/01/webpack/)
@@ -621,20 +621,20 @@ return '确定退出吗？';
 普通函数都可以，其中普通函数的this指向调用方
 
 ### 节流和防抖？
-节流：对于短时间连续触发的事件，防抖的含义是在某段时间内这样的事件只触发一次，从而节约性能（场景：如滚动，resize）【实现：使用timeout并清除，如echarts resize的操作】  
-防抖：如果短时间内大量触发同一事件，那么在函数执行一次之后，该函数在指定的时间期限内不再工作，直至过了这段时间才重新生效（场景：搜索框input事件，例如要支持输入实时搜索可以使用节流方案（间隔一段时间就必须查询相关内容），或者实现输入间隔大于某个值（如500ms），就当做用户输入完成，然后开始搜索，具体使用哪种方案要看业务需求）【实现：定义一个开关和timeout混合使用】  
-节流和防抖的区别就是：节流只触发最后一次，防抖每隔一段时间后必定触发  
-共同点：都是控制事件触发频率的方法，用于优化性能  
+节流：对于短时间连续触发的事件，防抖的含义是在某段时间内这样的事件只触发一次，从而节约性能（场景：如滚动，resize）【实现：使用timeout并清除，如echarts resize的操作】
+防抖：如果短时间内大量触发同一事件，那么在函数执行一次之后，该函数在指定的时间期限内不再工作，直至过了这段时间才重新生效（场景：搜索框input事件，例如要支持输入实时搜索可以使用节流方案（间隔一段时间就必须查询相关内容），或者实现输入间隔大于某个值（如500ms），就当做用户输入完成，然后开始搜索，具体使用哪种方案要看业务需求）【实现：定义一个开关和timeout混合使用】
+节流和防抖的区别就是：节流只触发最后一次，防抖每隔一段时间后必定触发
+共同点：都是控制事件触发频率的方法，用于优化性能
 
 ### 页面渲染过程？
 ![dom 渲染](https://github.com/yangfeng727/study_learing_problem/blob/master/img/domrender.png)
-1.在Dom树解析的过程中，遇到link会去进行请求资源，这个过程不会阻塞Dom的解析；  
-2.遇到script标签，则会将解析停下来，去执行js代码，因此script标签通常建议放在</body>之前，能优化用户体验，减少白屏时间，还可以使用js动态加载生产script标签  
-3.如图渲染DOM和CSSDOM,渲染完成后合并生成render树->布局（reflow重排发生在这个阶段）这个阶段是通过递归调用进行布局的，引擎计算各元素的尺寸大小，进行布局树绘制->绘制（repainting重绘发生在这个阶段）触发重绘：改变元素颜色、背景、visibility、outline等属性  
+1.在Dom树解析的过程中，遇到link会去进行请求资源，这个过程不会阻塞Dom的解析；
+2.遇到script标签，则会将解析停下来，去执行js代码，因此script标签通常建议放在</body>之前，能优化用户体验，减少白屏时间，还可以使用js动态加载生产script标签
+3.如图渲染DOM和CSSDOM,渲染完成后合并生成render树->布局（reflow重排发生在这个阶段）这个阶段是通过递归调用进行布局的，引擎计算各元素的尺寸大小，进行布局树绘制->绘制（repainting重绘发生在这个阶段）触发重绘：改变元素颜色、背景、visibility、outline等属性
 
 回流和重绘？
-回流【layout阶段】：发生在页面加载流程中，只要页面布局发生变化都会回流（如添加或者删除可见的DOM元素，元素位置改变，元素尺寸改变——边距、填充、边框、宽度和高度，内容改变等）  
-重绘【paint阶段】：当render tree中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格，而不会影响布局的，比如background-color。则就叫称为重绘  
+回流【layout阶段】：发生在页面加载流程中，只要页面布局发生变化都会回流（如添加或者删除可见的DOM元素，元素位置改变，元素尺寸改变——边距、填充、边框、宽度和高度，内容改变等）
+重绘【paint阶段】：当render tree中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格，而不会影响布局的，比如background-color。则就叫称为重绘
 
 ### 一屏幕展示代码
 ![一屏幕展示代码](https://github.com/yangfeng727/study_learing_problem/blob/master/img/一屏展示效果.png)
@@ -684,28 +684,28 @@ return '确定退出吗？';
 # 事件模型 [参考教程](https://www.cnblogs.com/leftJS/p/10948138.html)
 ## 在各式各样的浏览器中，JavaScript事件模型主要分为3种：原始事件模型、DOM2事件模型、IE事件模型
 ### 1.原始事件模型（DOM0级）
-这是一种被所有浏览器都支持的事件模型，对于原始事件而言，没有事件流，事件一旦发生将马上进行处理，有两种方式可以实现原始事件：  
+这是一种被所有浏览器都支持的事件模型，对于原始事件而言，没有事件流，事件一旦发生将马上进行处理，有两种方式可以实现原始事件：
 
-（1）在html代码中直接指定属性值：<button id="demo" type="button" onclick="doSomeTing()" />  
+（1）在html代码中直接指定属性值：<button id="demo" type="button" onclick="doSomeTing()" />
 
-（2）在js代码中为　document.getElementsById("demo").onclick = doSomeTing()  
+（2）在js代码中为　document.getElementsById("demo").onclick = doSomeTing()
 
-优点：所有浏览器都兼容  
+优点：所有浏览器都兼容
 
-缺点：1）逻辑与显示没有分离；2）相同事件的监听函数只能绑定一个，后绑定的会覆盖掉前面的，如：a.onclick = func1; a.onclick = func2;将只会执行func2中的内容。3）无法通过事件的冒泡、委托等机制（后面会讲到）完成更多事情。  
+缺点：1）逻辑与显示没有分离；2）相同事件的监听函数只能绑定一个，后绑定的会覆盖掉前面的，如：a.onclick = func1; a.onclick = func2;将只会执行func2中的内容。3）无法通过事件的冒泡、委托等机制（后面会讲到）完成更多事情。
 
 因为这些缺点，虽然原始事件类型兼容所有浏览器，但仍不推荐使用。
 
 ### 2.DOM2事件模型
-此模型是W3C制定的标准模型，现代浏览器（IE6~8除外）都已经遵循这个规范。W3C制定的事件模型中，一次事件的发生包含三个过程：  
+此模型是W3C制定的标准模型，现代浏览器（IE6~8除外）都已经遵循这个规范。W3C制定的事件模型中，一次事件的发生包含三个过程：
 
-(1).事件捕获阶段，(2).事件目标阶段，(3).事件冒泡阶段。  
+(1).事件捕获阶段，(2).事件目标阶段，(3).事件冒泡阶段。
 addEventListener("eventType","handler","true|false");其中eventType指事件类型，注意不要加‘on’前缀，与IE下不同。第二个参数是处理函数，**第三个即用来指定是否在捕获阶段进行处理**，一般设为false来与IE保持一致(默认设置)，除非你有特殊的逻辑需求。监听器的解除也类似：removeEventListner("eventType","handler","true!false");
 ### 3.IE事件模型（针对ie8及以下，才有，ie9及以上使用的DOM2事件模型）
 IE不把该对象传入事件处理函数,由于在任意时刻只会存在一个事件,所以IE把它作为全局对象window的一个属性，为求证其真伪，使用IE8执行代码alert(window.event)，结果弹出是null，说明该属性已经定义，只是值为null（与undefined不同）
-IE模型下的事件监听方式也挺独特，绑定监听函数的方法是：attachEvent( "eventType","handler")，**IE中只支持事件冒泡，没有捕获**，IE中有一个独有的事件绑定方法  
-attachEvent方法，此方法有两个参数：  
-attachEvent("事件名"，"函数名")  
+IE模型下的事件监听方式也挺独特，绑定监听函数的方法是：attachEvent( "eventType","handler")，**IE中只支持事件冒泡，没有捕获**，IE中有一个独有的事件绑定方法
+attachEvent方法，此方法有两个参数：
+attachEvent("事件名"，"函数名")
 
 ### ie8不支持addEventListener，请使用attachEvent
 ```
@@ -723,7 +723,7 @@ if(!Function.prototype.bind){
         };
     };
 }
- 
+
 //兼容addEventListener函数
 function addEventListener(ele,event,fn){
     if(ele.addEventListener){
@@ -732,7 +732,7 @@ function addEventListener(ele,event,fn){
         ele.attachEvent('on'+event,fn.bind(ele));
     }
 }
- 
+
 //兼容removeEventListener函数
 function removeEventListener(ele,event,fn){
     if(ele.removeEventListener){
@@ -753,23 +753,23 @@ instanceof 运算符用于检测构造函数的 prototype 属性是否出现在�
 // instanceof实现原理
 // 示例： a instanceof B
 // 检测a的原型链（__proto__）上是否有B.prototype，若有返回true，否则false。
-function instance_of(L, R) {//L 表示左表达式，R 表示右表达式 
+function instance_of(L, R) {//L 表示左表达式，R 表示右表达式
 
-    var O = R.prototype;   // 取 R 的显示原型 
+    var O = R.prototype;   // 取 R 的显示原型
 
     L = L.__proto__;  // 取 L 的隐式原型
 
-    while (true) {    
+    while (true) {
 
-        if (L === null)      
+        if (L === null)
 
-             return false;   
+             return false;
 
         if (O === L)  // 当 O 显式原型 严格等于  L隐式原型 时，返回true
 
-             return true;   
+             return true;
 
-        L = L.__proto__;  
+        L = L.__proto__;
 
     }
 
@@ -795,4 +795,31 @@ Child4.prototype = Object.create(Parent4.prototype); // 这里只将父类的pro
 Child4.prototype.constructor = Child4;
 ```
 
+# 公钥私钥，非对称加密的理解
+```
+公钥和私钥是成对的，它们互相解密。
+
+公钥加密，私钥解密。
+
+私钥数字签名，公钥验证。
+
+
+A：私钥  B：拥有A的公钥
+
+1.公钥加密私钥解密： B给A发信息， B----》使用A的公钥加密明文-----》A使用配套的私钥解密
+
+2.私钥生成“数字签名”: A给B发送信息，  A----》A使用私钥加密（对信息使用Hash函数生成的摘要（digest））== "数字签名"（signature）----》将信息和数字签名发送给B
+                                                             B拿到信息，取下数字签名，用A的公钥解密，得到信件的摘要。由此证明，这封信确实是A发出的
+                                                             B对信息使用hash函数生成摘要和A发过来的摘要进行对比，完全一致则表明A发送给B的信息没有被篡改【即这就是A想传达给B的信息】
+
+
+后面衍生出一个问题，不能确定这个公钥是不是A的，所有出现了一个新的名词（第三方权威CA机构，也就是"证书中心"）证书中心用自己的私钥，对鲍勃的公钥和一些相关信息一起加密，生成"数字证书"（Digital Certificate）,
+
+A在“证书中心（简称CA）”为公钥做认证，后面A发送信息时再附上“数字证书”就好了
+
+B收到A发的消息后，用CA的公钥解开数字证书，就可以拿到A真实的公钥了，然后就能证明"数字签名"是否真的是A签的。
+
+
+这里后续有疑问?具体到底怎么用到？？？？
+```
 
